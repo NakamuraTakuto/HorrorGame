@@ -8,7 +8,7 @@ public class PlayerContller : MonoBehaviour
     [Header("Playerの移動速度"),SerializeField] float _moveSpeed = 5f;
     /// <summary>Playerのアイテムリスト</summary>
     [Header("Playerのアイテムリスト"), SerializeField]
-    List<ObjectBase> _itemuList = new List<ObjectBase>();
+    List<ItemBase> _itemuList = new List<ItemBase>();
     Rigidbody2D _rd;
     Animator _anima;
     Transform _rotation;
@@ -33,7 +33,6 @@ public class PlayerContller : MonoBehaviour
         {
             //Playerの向いている方向に合わせて動く
             _rotation.localEulerAngles = new Vector3(0, 0, h * -90);
-            
         }
         else if (Mathf.Abs(v) > 0)
         {
@@ -53,8 +52,7 @@ public class PlayerContller : MonoBehaviour
         }
     }
 
-
-    public void ItemGet(ObjectBase item)
+    public void ItemGet(ItemBase item)
     {
         _itemuList.Add(item);
     }
