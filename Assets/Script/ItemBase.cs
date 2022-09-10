@@ -8,7 +8,7 @@ public abstract class ItemBase : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (gameObject.tag == "Item" && Input.GetButtonDown("Fire1"))
+        if (collision.gameObject.tag == "Player" && Input.GetButtonDown("Fire1"))
         {
             //‚±‚ÌgameObject‚ªitem‚È‚çList‚É“ü‚ê‚é
             collision.gameObject.GetComponent<PlayerContller>().ItemGet(this);

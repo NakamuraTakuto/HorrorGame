@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chair : ObjectBase
 {
-    public override void Activete()
+    public override void ObjActivete()
     {
         throw new System.NotImplementedException();
     }
