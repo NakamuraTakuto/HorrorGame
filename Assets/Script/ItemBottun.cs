@@ -19,7 +19,6 @@ public class ItemBottun : MonoBehaviour
 
             foreach (var l in ItemStr)
             {
-
             }
         }
     }
