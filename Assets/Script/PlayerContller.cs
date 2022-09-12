@@ -18,12 +18,14 @@ public class PlayerContller : MonoBehaviour
     bool _listRe = false;
     float h;
     float v;
+    SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
     {
         _rd = GetComponent<Rigidbody2D>();
         _rotation = transform.GetChild(0);
         _moveToF = true;
+        _anima = GetComponent<Animator>();
         if(_moveToF)
         {
             Debug.Log("true");
@@ -36,33 +38,25 @@ public class PlayerContller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //移動方向の入力を取得
+        h = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical");
+
         //Playerが行動可能な時
         if (_moveToF)
         {
-            //移動方向の入力を取得
-            h = Input.GetAxisRaw("Horizontal");
-            v = Input.GetAxisRaw("Vertical");
             Vector2 dir = new Vector2(h, v).normalized;
             _rd.velocity = dir * _moveSpeed;
+            TriggerRotation();
+            //AnimaPlayer();
         }
         else if (_moveToF == false)
         {
             Vector2 dir = new Vector2(h,v).normalized * 0;
             _rd.velocity = _moveSpeed * dir * 0;
+            TriggerRotation();
+            //AnimaPlayer();
         }
-
-        //Playerの向きに合わせて子Objectの向きを調整する
-        if (Mathf.Abs(h) > 0)
-        {
-            //Playerの向いている方向に合わせて動く
-            _rotation.localEulerAngles = new Vector3(0, 0, h * -90);
-        }
-        else if (Mathf.Abs(v) > 0)
-        {
-            //Playerの向いている方向に動く
-            _rotation.localEulerAngles = new Vector3(0, 0, v > 0 ? 0 : 180);
-        }
-
         //Listの中身を初期化する(Inspectorから任意）
         ListReset();
     }
@@ -80,6 +74,34 @@ public class PlayerContller : MonoBehaviour
         _itemuList.Add(item);
     }
 
+    //Playerの向きに合わせてTorrigerObjectの向きを調整する
+    void TriggerRotation()
+    {
+        if (Mathf.Abs(h) > 0)
+        {
+            //Playerの向いている方向に合わせて動く
+            _rotation.localEulerAngles = new Vector3(0, 0, h * -90);
+        }
+        else if (Mathf.Abs(v) > 0)
+        {
+            //Playerの向いている方向に動く
+            _rotation.localEulerAngles = new Vector3(0, 0, v > 0 ? 0 : 180);
+        }
+    }
+
+    //入力によってPlayerのAnimaを再生する
+    /*void AnimaPlayer()
+    {
+        if (h != 0)
+        {
+            _sprite.flipX = (h < 0);
+        }
+
+       if (_anima)
+        {
+           // _anima.SetBool("Side0",)
+        }
+    }*/
     private void ListReset()
     {
         //Listの中身を初期化する(Inspectorから任意）
