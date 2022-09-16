@@ -26,11 +26,8 @@ public class PlayerContller : MonoBehaviour
         _rotation = transform.GetChild(0);
         _moveToF = true;
         _anima = GetComponent<Animator>();
-        if(_moveToF)
-        {
-            Debug.Log("true");
-        }
-
+        _sprite = GetComponent<SpriteRenderer>();
+        
         //Listの中身を初期化する(Inspectorから任意）
         ListReset();
     }
@@ -48,7 +45,7 @@ public class PlayerContller : MonoBehaviour
             Vector2 dir = new Vector2(h, v).normalized;
             _rd.velocity = dir * _moveSpeed;
             TriggerRotation();
-            //AnimaPlayer();
+            AnimaPlayer();
         }
         else if (_moveToF == false)
         {
@@ -57,6 +54,7 @@ public class PlayerContller : MonoBehaviour
             TriggerRotation();
             //AnimaPlayer();
         }
+
         //Listの中身を初期化する(Inspectorから任意）
         ListReset();
     }
@@ -90,18 +88,40 @@ public class PlayerContller : MonoBehaviour
     }
 
     //入力によってPlayerのAnimaを再生する
-    /*void AnimaPlayer()
+    void AnimaPlayer()
     {
-        if (h != 0)
+        if (h > 0)
         {
-            _sprite.flipX = (h < 0);
+            _sprite.flipX = true;
+        }
+        else if (h < 0)
+        {
+            _sprite.flipX = false;
         }
 
-       if (_anima)
+        if (Input.GetButton("Horizontal"))
         {
-           // _anima.SetBool("Side0",)
+            _anima.SetBool("Side",true);
         }
-    }*/
+       else if (Input.GetButton("Vertical"))
+        {
+            _anima.SetBool("Side", false);
+        }
+       
+        if (v < 0)
+        {
+            _anima.SetBool("Down", true);
+        }
+       else if (v > 0)
+        {
+            _anima.SetBool("Up", true);
+        }
+        else
+        {
+            _anima.SetBool("Up", false);
+            _anima.SetBool("Down", false);
+        }
+    }
     private void ListReset()
     {
         //Listの中身を初期化する(Inspectorから任意）

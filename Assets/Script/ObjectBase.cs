@@ -27,7 +27,6 @@ public abstract class ObjectBase : MonoBehaviour
         {
             if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
             {
-                Debug.Log("Œ³‚ÌˆÊ’u‚É–ß‚·");
                 _playerObjPosition.transform.position = _position;
                 _playerC._moveToF = true;
             }
@@ -39,7 +38,6 @@ public abstract class ObjectBase : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && collision.gameObject.tag =="Player")
         {
-            Debug.Log("ŒÄ‚Î‚ê‚½");
             //Player‚ÌˆÚ“®‘O‚É‚¢‚½position‚ğŠo‚¦‚Ä‚¨‚­
             _position = collision.gameObject.transform.position;
             //‚±‚ÌgameObject‚Ìã‚ÉPlayer‚ğˆÚ“®‚³‚¹‚é
