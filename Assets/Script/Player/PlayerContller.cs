@@ -8,7 +8,7 @@ public class PlayerContller : MonoBehaviour
     [Header("Playerの移動速度"), SerializeField] float _moveSpeed = 5f;
     /// <summary>Playerのアイテムリスト</summary>
     [Header("Playerのアイテムリスト"), SerializeField] 
-    public List<ItemBase> _itemuList = new List<ItemBase>();
+    public List<GameObject> _itemuList = new List<GameObject>();
     Rigidbody2D _rd;
     Animator _anima;
     Transform _rotation;
@@ -59,15 +59,7 @@ public class PlayerContller : MonoBehaviour
         ListReset();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log(_itemuList);
-        }
-    }
-
-    public void ItemGet(ItemBase item)
+    public void ItemGet(GameObject item)
     {
         _itemuList.Add(item);
     }
@@ -127,7 +119,7 @@ public class PlayerContller : MonoBehaviour
         //Listの中身を初期化する(Inspectorから任意）
         if(_listRe)
         {
-            _itemuList = new List<ItemBase>();
+            _itemuList = new List<GameObject>();
             _listRe = false;
         }
     }
