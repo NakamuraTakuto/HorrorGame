@@ -23,20 +23,20 @@ public abstract class ObjectBase : MonoBehaviour
 
     private void Update()
     {
-        if (_playerC._moveToF == false)
-        {
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
-            {
-                _playerObjPosition.transform.position = _position;
-                _playerC._moveToF = true;
-            }
-        }
+        //if (_playerC._moveToF == false)
+        //{
+        //    if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+        //    {
+        //        _playerObjPosition.transform.position = _position;
+        //        _playerC._moveToF = true;
+        //    }
+        //}
     }
 
     //Playerのcolliderが接触している＆＆プレイヤーが左クリックした時に行いたい処理
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButtonDown("Fire1") && collision.gameObject.tag =="Player")
+        if (Input.GetButtonDown("Fire1") && collision.gameObject.tag == "Player")
         {
             //Playerの移動前にいたpositionを覚えておく
             _position = collision.gameObject.transform.position;
@@ -44,6 +44,14 @@ public abstract class ObjectBase : MonoBehaviour
             collision.gameObject.transform.position = _playUpObj.transform.position;
             //Playerを移動不可にする
             _playerC._moveToF = false;
+        }
+        else if (_playerC._moveToF == false)
+        {
+            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+            {
+                _playerObjPosition.transform.position = _position;
+                _playerC._moveToF = true;
+            }
         }
     }
 }
