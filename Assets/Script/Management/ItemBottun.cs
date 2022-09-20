@@ -12,6 +12,13 @@ public class ItemBottun : MonoBehaviour
  
     private void Update()
     {
-        _text.text = _itemName;
+        if (_itemName != null)
+        {
+            _text.text = _itemName;
+        }
+        else if (_itemName == null)
+        {
+            Debug.Log("null");
+        }
     }
 }
