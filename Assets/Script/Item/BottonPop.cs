@@ -5,7 +5,7 @@ using UnityEngine;
 public class BottonPop : ItemBase
 {
     /// <summary>Š±Â‚µ‚½‚¢UI</summary>
-    [SerializeField, Header("Š±Â‚µ‚½‚¢UI‚ğİ’è‚·‚é")] GameObject _setUI;
+    [SerializeField, Header("Š±Â‚µ‚½‚¢UI‚ğİ’è‚·‚é")] public GameObject _setUI;
     /// <summary>Å‰‚ÉON‚É‚·‚é‚©OFF‚É‚·‚é‚©</summary>
     [SerializeField, Header("ƒAƒCƒeƒ€‚ªPlayer‚ÌList‚É“ü‚Á‚½‚çtrue")] bool _itemToF = false;
     PlayerContller _playerList;
@@ -21,7 +21,7 @@ public class BottonPop : ItemBase
     {
        if (_playerList._itemuList.Contains(this.gameObject))
         {
-            _set._popToF = true;
+            _setUI.SetActive(true);
         }
     }
     // Update is called once per frame

@@ -23,14 +23,14 @@ public abstract class ObjectBase : MonoBehaviour
 
     private void Update()
     {
-        //if (_playerC._moveToF == false)
-        //{
-        //    if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
-        //    {
-        //        _playerObjPosition.transform.position = _position;
-        //        _playerC._moveToF = true;
-        //    }
-        //}
+        if (_playerC._moveToF == false)
+        {
+            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+            {
+                _playerObjPosition.transform.position = _position;
+                _playerC._moveToF = true;
+            }
+        }
     }
 
     //Playerのcolliderが接触している＆＆プレイヤーが左クリックした時に行いたい処理
