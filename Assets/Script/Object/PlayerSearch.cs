@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerSearch : MonoBehaviour
 {
     public bool _playerSearch = false;
-    [SerializeField, Header("EXITÇê›íËÇ∑ÇÈ")] GameObject _exit = null;
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -15,10 +14,5 @@ public class PlayerSearch : MonoBehaviour
     public void TrickPainting()
     {
         gameObject.SetActive(false);
-    }
-
-    public void DeerHead()
-    {
-        _exit.SetActive(true);
     }
 }
