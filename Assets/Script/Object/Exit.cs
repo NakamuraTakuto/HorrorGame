@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-    bool _triggerToF = false;
-
+    [SerializeField, Header("à⁄ìÆÇµÇΩÇ¢ÉVÅ[Éì")] string _sceneName;
+    SceneChanger _scene;
+    private void Start()
+    {
+        _scene = gameObject.GetComponent<SceneChanger>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _triggerToF = true;
+        _scene.SeenChange(_sceneName);
     }
     // Update is called once per frame
     void Update()
