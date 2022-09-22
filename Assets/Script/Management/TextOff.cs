@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class TextOff : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
+    [SerializeField] GameObject _GetPanel;
+    public void TextOffButton()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 }

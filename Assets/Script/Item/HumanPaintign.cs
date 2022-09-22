@@ -11,22 +11,30 @@ public class HumanPaintign : MonoBehaviour
     [SerializeField, Header("ä÷åWÇÃÇ†ÇÈObjÇê›íËÇ∑ÇÈ")] GameObject _SetRelationObj;
     Text _SetText;
     PlayerSearch _playerSearch;
+    BottonPop _bottonOff;
 
     private void Start()
     {
         _SetText = _GetText.GetComponent<Text>();
         _playerSearch = _SetRelationObj.GetComponent<PlayerSearch>();
+        _bottonOff = gameObject.GetComponent<BottonPop>();
     }
     public void Relation()
     {
         if (_playerSearch._playerSearch)
         {
             _playerSearch.TrickPainting();
+            Destroy(gameObject);
         }
-        else
+        else if (!_playerSearch._playerSearch)
         {
             _SetText.text = _message;
             _GetMessagePanel.SetActive(true);
         }
+    }
+
+    private void OnDestroy()
+    {
+        _bottonOff._setUI.SetActive(false);
     }
 }

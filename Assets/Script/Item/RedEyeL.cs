@@ -11,11 +11,13 @@ public class RedEyeL : MonoBehaviour
     [SerializeField, Header("ä÷åWÇÃÇ†ÇÈObjÇê›íËÇ∑ÇÈ")] GameObject _SetRelationObj;
     Text _SetText;
     DeerHead _deerHead;
+    BottonPop _bottonOff;
 
     private void Start()
     {
         _SetText = _GetText.GetComponent<Text>();
         _deerHead = _SetRelationObj.GetComponent<DeerHead>();
+        _bottonOff = GetComponent<BottonPop>();
     }
     public void Relation()
     {
@@ -23,13 +25,18 @@ public class RedEyeL : MonoBehaviour
         {
             _deerHead._redEyeL = true;
             _deerHead.DeerHeads();
+            _bottonOff._setUI.SetActive(false);
             Destroy(gameObject);
         }
         else if (_deerHead._playerSearch == false)
         {
-            Debug.Log("yobareta");
             _SetText.text = _message;
             _GetMessagePanel.SetActive(true);
         }
+    }
+
+    private void OnDestroy()
+    {
+        _bottonOff._setUI.SetActive(false);
     }
 }
