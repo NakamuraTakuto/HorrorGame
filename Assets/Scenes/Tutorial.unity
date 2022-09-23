@@ -38493,8 +38493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 508, y: -98}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 463.1776, y: -111.9104}
+  m_SizeDelta: {x: 249.6448, y: 57.8208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540616723
 MonoBehaviour:
@@ -45573,7 +45573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GetText: {fileID: 1488078743}
   _getPanel: {fileID: 69743428}
-  _scene: Main
+  _scene: Clear
   _setToF: 0
   _playerSearch: 0
 --- !u!212 &1791201807
@@ -45757,7 +45757,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -45768,7 +45768,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9589\u3058\u308B"
+  m_Text: 'Close
+
+'
 --- !u!222 &1812707184
 CanvasRenderer:
   m_ObjectHideFlags: 0
